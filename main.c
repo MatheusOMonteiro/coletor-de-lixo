@@ -1,4 +1,4 @@
-#include <cont_ref.h>
+#include "cont_ref.h"
 
 int main(){
 	
@@ -7,7 +7,7 @@ int main(){
 	int *w= malloc2(sizeof(int));
 	print_nodes();
 	*w = 20;
-	atrib(v,w);
+	atrib2(v,w);
 	print_nodes();
 	char *c = malloc2(sizeof(char));
 	*c = 'Z';
