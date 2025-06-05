@@ -7,7 +7,7 @@ typedef struct node_ref{
     void* adress; //Endereço que esse bloco aponta
     node_ref* prev; 
     node_ref* next;
-    int cont_references; // Contador de referencias para esse bloco
+    int count_references; // Contador de referencias para esse bloco
 }node_ref;
 
 //Mostra as alocaçoes feitas por malloc2
