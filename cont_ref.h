@@ -3,15 +3,15 @@
 #include <stdio.h>
 #include <stddef.h> //Usado para ter o size_t que é o tipo de sizeof()
 
-typedef struct memory_block{
+typedef struct node_ref{
     void* adress; //Endereço que esse bloco aponta
-    memory_block* prev; 
-    memory_block* next;
+    node_ref* prev; 
+    node_ref* next;
     int cont_references; // Contador de referencias para esse bloco
-}memory_block;
+}node_ref;
 
 //Mostra as alocaçoes feitas por malloc2
-void dump();
+void print_nodes();
 
 void atrib2(void** dest,void* src);
 
