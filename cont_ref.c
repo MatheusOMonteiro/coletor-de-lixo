@@ -16,11 +16,33 @@ void print_nodes(){
 }
 
 /*
-    Atribui um endereço a outro endereço
+    Atribui um endereco a outro endereço
     Decrementa o antigo
     Incrementa o novo
 */
-void atrib2(void** dest,void* src){}
+void atrib2(void** dest,void* src){
+    // Se o destino j� aponta para algo, decrementa sua refer�ncia
+    if (dest && *dest) {
+        node_ref* old_node = search_node(*dest);
+        if (old-node != NULL) {
+            old_node->count_references--;
+            if (old_node->count_references == 0) {
+                remove_node(old_node);
+            }
+        }
+    }
+
+    // Atribui o novo valor
+    *dest = src;
+
+    // Incrementa a refer�ncia do novo ponteiro, se existir
+    if (src) {
+        node_ref* new_node = search_node(src);
+        if (new_node != NULL) {
+            new_node->count_references++;
+        }
+    }
+}
 
 //Aloca memoria necessaria, chama add_node para definir o no
 void* malloc2(size_t size){
@@ -51,7 +73,6 @@ void remove_node(node_ref* node) {
     } else {
         head = node->next;
     }
-
     if (node->next != NULL) {
         node->next->prev = node->prev;
     }
@@ -71,3 +92,4 @@ node_ref* search_node(void* ptr) {
     }
     return NULL;
 }
+
