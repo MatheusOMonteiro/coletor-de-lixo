@@ -27,3 +27,24 @@
   Matheus Oliveira Monteiro
 
   Rodolfo Maia Filho
+
+
+## 👨‍💻 Como compilar e executar
+
+
+### 1. Compile a biblioteca estática
+
+```bash
+gcc -c cont_ref.c -o cont_ref.o
+ar rcs libcontref.a cont_ref.o
+```
+
+### 2. Compile e linke o programa principal
+```bash
+gcc main.c -L. -lcontref -o programa
+```
+
+### 3. Execute
+```bash
+./programa
+```
